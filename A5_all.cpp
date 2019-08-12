@@ -156,11 +156,13 @@ int testCountStringFunctor(const std::vector<string> &vecstr, int n) {
     // 4) Let result = what count-if returns.
     return result;
 }
-/*template<typename t1, typename t2>
-std::ostream& operator<<(std::ostream& os, const std::pair<t1, t2>& pair)
+template<typename t1, typename t2>
+std::ostream& operator<<(std::ostream& os, const std::map<t1, t2>& map)
 {
-    return os << "< " << pair.first << " , " << pair.second << " >";
-}*/
+    for(auto& pair : map){
+        return os << pair.first << " " << pair.second<<endl;
+    }
+}
 /*std::string toString(const std::pair<char, int>& pair) {
     std::ostringstream str;
     str << "<" << pair.first << ", " << pair.second << ">";
@@ -195,9 +197,9 @@ std::for_each(input.begin(),input.end(),[& index](const char& c){index[c]++;});/
     // using a space " " as a separator
   //  std::ostream_iterator<std::pair< char, int>> out(cout, " " );
 // output the set elements to cout separating them with a space
- /*   std::ostream_iterator<char,int> out (std::cout, " ");
-    std::copy(index.begin(), index.end(), out);
-*/
+    std::ostream_iterator<std::map<char, int>> out (std::cout, " ");
+//    std::copy(index.begin(), index.end(), out);
+    cout<<index;
 }
 template<class Iterator>
 std::pair<Iterator, bool> second_max(Iterator start, Iterator finish) // function signature
